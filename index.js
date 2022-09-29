@@ -1,12 +1,23 @@
-let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]
+let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
+const ulEl = document.getElementById("ul-el")
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
-    console.log(myLeads)
+    inputEl.value = ""
 })
+function renderLeads () {
+    let listitems = ""
+    for (let i = 0; i < myLeads.length; i++) {
+    listitems += 
+    '<li>
+        <a target='_blank' href="${myleads[i]}">
+            ${myLeads[i]}
+        </a>
+    </li>
+    '
+    }
+    ulEl.innerHTML = listitems
 
-for (let i = 0; i < myLeads.length; i++) {
-    console.log(myLeads[i])
 }
