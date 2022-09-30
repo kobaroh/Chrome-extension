@@ -6,18 +6,20 @@ const ulEl = document.getElementById("ul-el")
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value = ""
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
+    renderLeads()
 })
-function renderLeads () {
-    let listitems = ""
-    for (let i = 0; i < myLeads.length; i++) {
-    listitems += 
-    '<li>
-        <a target='_blank' href="${myleads[i]}">
-            ${myLeads[i]}
-        </a>
-    </li>
-    '
-    }
-    ulEl.innerHTML = listitems
 
+function renderLeads() {
+    let listItems = ""
+    for (let i = 0; i < myLeads.length; i++) {
+        listItems += `
+            <li>
+                <a target='_blank' href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>
+        `
+    } 
+    ulEl.innerHTML = listItems  
 }
